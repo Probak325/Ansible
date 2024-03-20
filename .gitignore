@@ -1,1 +1,2 @@
 *.retry
+proxmox-token-secret
