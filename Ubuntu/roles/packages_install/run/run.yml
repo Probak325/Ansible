@@ -2,7 +2,7 @@
 - name: "Package installation on Ubuntu"
   hosts: Ubuntu
   gather_facts: false
-  remote_user: pawel
+  remote_user: ansible
   become: true
   roles:
     - packages_install
