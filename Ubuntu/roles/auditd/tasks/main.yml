@@ -1,0 +1,8 @@
+---
+- name: "Update auditd rules"
+  become: true
+  shell: |
+    rm /etc/audit/rules.d/audit.rules
+    wget 
+  register: 
+    auditd-restart

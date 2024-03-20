@@ -19,4 +19,6 @@
       - clamav
       - clamav-freshclam
 #      - clamav-deamon
+      - auditd
+      - audispd-plugins
     state: present
