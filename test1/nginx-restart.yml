@@ -1,0 +1,20 @@
+---
+
+- hosts: all
+  gather_facts: False 
+  become: true
+  tasks:
+    - name: restart nginx service
+      service:
+        name: nginx
+        state: restarted      
+    - debug: 
+        msg: Ellllo
+
+    - name: Pokaz zawartosc folderu
+      command: ls -la ./
+      register: dir_contents
+
+    - name: debug
+      debug:
+        msg: "{{ dir_contents }}"

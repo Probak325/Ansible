@@ -1,0 +1,10 @@
+---
+
+  - name: "Installing MC tool"
+    hosts: all
+    become: true
+
+    tasks:
+    - name: "Intalling mc"
+      apt:
+        name: mc
