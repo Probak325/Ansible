@@ -1,0 +1,22 @@
+---
+# Package installtion yaml file
+
+- name: "Update and upgrade"
+  become: true
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: true
+
+- name: "Package installation tasks"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - ntp
+      - fail2ban
+      - msmtp
+      - msmtp-mta
+      - mailutils
+      - clamav
+      - clamav-freshclam
+#      - clamav-deamon
+    state: present

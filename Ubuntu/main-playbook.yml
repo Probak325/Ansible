@@ -1,0 +1,8 @@
+---
+- name: "Main playbook"
+  hosts: Ubuntu
+  remote_user: ansible
+  gather_facts: yes
+
+  roles:
+    - packages
