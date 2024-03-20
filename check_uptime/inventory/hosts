@@ -1,0 +1,6 @@
+[rhel8]
+master ansible_ssh_host=localhost
+
+
+[rhel8:vars]
+ansible_user=ansible

@@ -1,0 +1,18 @@
+---
+# Create many users using vars in one YAML file"
+- name: "Create many users by VARS"
+  hosts: all
+  become: true
+  gather_facts: false
+  vars:
+    users_list:
+      - user1
+      - user2
+      - user3
+      - user4
+  tasks:
+    - name: "Create users"
+      user:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ users_list }}"  

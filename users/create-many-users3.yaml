@@ -1,0 +1,26 @@
+---
+# Test
+- name: "Delete users and groups"
+  hosts: all
+  become: false
+  gather_facts: false
+  tasks:
+    - name: "Delete group"
+      group: 
+        name: wheel
+        state: present
+    - name: "Delete users"
+      user:
+        name: "{{ item }}"
+      register: output
+      loop:
+        - "user1"
+        - "user2"
+        - "user3"
+        - "user4"
+        - "user5"
+    - debug:
+        msg: "{{ output.results }}"
+    #- name: "Test1"
+    #  loop:
+        

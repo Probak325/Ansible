@@ -1,0 +1,11 @@
+---
+- name: "Create a password for user: user1"
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+  - name: 
+    user:
+      name: user1
+      # Password is: 123
+      password: '$6$cHPbrV1Uq0aF/Pav$GMgW8jhT6H8PhQuiaIjNMFZYBG46OsxamgxBXFyKWDavWguozqnjvhij5HVl4coinA3/aX5jOl2MxMTHvh3V50'

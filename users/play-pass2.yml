@@ -1,0 +1,10 @@
+---
+- name: "pass2"
+  hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: "Play pass 2"
+      user: 
+        name: user1
+        password: "{{ '1234' | password_hash('sha512') }}"

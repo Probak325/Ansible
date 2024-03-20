@@ -1,0 +1,8 @@
+---
+- name: "Package installation on Ubuntu"
+  hosts: Ubuntu
+  gather_facts: false
+  remote_user: pawel
+  become: true
+  roles:
+    - packages_install

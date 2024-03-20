@@ -1,0 +1,32 @@
+---
+# Comment
+- name: "Find war file and more"
+  hosts: localhost
+  become: true
+  gather_facts: false
+  vars:
+     - tab: []
+  tasks:
+    - name: "Find file with war extension"
+      find: 
+        path: /home/pawel/Ansible/war_files
+        pattern: "*.war"
+        recurse: true
+      register: out
+
+    - name: "Test1" 
+      loop: "{{ out.files | map(attribute='path') | list }}"
+      ansible.builtin.set_fact:
+        tab: "{{ tab + [item] }}"
+      register: out2
+
+    - name: "Test2"
+      loop: "{{ tab }}"
+      lineinfile:
+        create: true
+        path: "/home/pawel/Ansible/war_files/out3.txt"
+        line:
+          - "{{ item }}"
+      register: out3
+    #- debug:
+     #   msg: "{{ out3 }}"

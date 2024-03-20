@@ -1,0 +1,21 @@
+---
+# create users in the loop
+- name: "create users"
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+  - name:
+    group:
+      name: group1
+  - name:
+    group:  
+      name: wheel
+      state: present
+  - name:
+    user:
+       name: user1
+       group: group1
+       groups: wheel
+       uid: 1002
+       state: present

@@ -1,0 +1,20 @@
+---
+- name: "Var tests"
+  hosts: all
+  become: true
+  vars:
+    favcolor: red
+  vars_files:
+    - ./external_var.yml
+  
+  tasks:
+  #- name: "Test vars"
+  #  ansible.builtin.shell: "/bin/echo {{ _color }} >> ./output.log"
+
+  - name: "Debug task"
+    ansible.builtin.debug:
+      msg: "{{ _color }}"
+
+  - name: "Debug task 2"
+    ansible.builtin.debug:
+      msg: "{{ some_variable | default(55) }}"

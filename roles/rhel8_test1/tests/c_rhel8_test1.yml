@@ -1,0 +1,12 @@
+---
+- name: moje testy
+  hosts: all
+  roles:
+    - rhel8_test1
+
+#  It can be here placed or in /handlers/main.yml file
+#  handlers:
+#  - name: systemd restart rsyslog
+#    ansible.builtin.systemd:
+#      name: rsyslog
+#      state: restarted

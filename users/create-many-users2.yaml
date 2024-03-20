@@ -1,0 +1,19 @@
+---
+# Create many users using YAML file
+- name: "Create many users using YAML file"
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:  
+    - name: "Create wheel group"
+      group:
+        name: "wheel"
+        state: present
+    - name: "Create users and groups"
+      user:
+        name: "{{ item.user_name }}"
+        state: present
+        groups: "{{ item.group_name }}"
+      loop:
+        - { user_name: "user1", group_name: "wheel" }
+        - { user_name: "user2", group_name: "wheel" }  

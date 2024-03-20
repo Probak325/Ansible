@@ -1,0 +1,5 @@
+---
+- name: moje testy
+  hosts: all
+  roles:
+    - check_uptime

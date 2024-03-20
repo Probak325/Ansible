@@ -1,0 +1,8 @@
+---
+# tasks file for rhel8_test1
+
+- name: "Import task1.yml file"
+  import_tasks: task1.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+  

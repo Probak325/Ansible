@@ -1,0 +1,10 @@
+---
+
+- name: "Main yaml file"
+  ansible.builtin.import_tasks: uptime.yml 
+
+- name: "nginx installation task"
+  ansible.builtin.import_tasks: nginx.yml
+
+#- name: "qemu-guest-agent installation task"
+#  ansible.builtin.import_tasks: qemu-guest-agent.yml

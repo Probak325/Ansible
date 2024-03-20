@@ -1,0 +1,2 @@
+['/home/pawel/Ansible/war_files/1.war']
+['/home/pawel/Ansible/war_files/2.war']

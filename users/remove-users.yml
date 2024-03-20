@@ -1,0 +1,20 @@
+---
+# Remove user: user1 from OS
+- name: "Remover user1"
+  hosts: localhost
+  
+  gather_facts: false
+  tasks:
+    - name: "Remove user1 user1"
+      user:
+        name: user1
+        state: absent
+    - name: "Remove group1 group"
+      group:
+         name: group1
+         state: absent
+    - name: "Remove wheel group"
+      group:
+        name: wheel
+        state: absent
+    

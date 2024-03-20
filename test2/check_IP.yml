@@ -1,0 +1,13 @@
+---
+
+- name: "Check IP yaml file"
+  hosts: Ubuntu
+  
+
+  tasks:
+  - name: "Check IP task"
+    ansible.builtin.shell: ifconfig | grep inet
+    register: output
+
+  - debug:
+      msg: "{{ output.stdout_lines }}"

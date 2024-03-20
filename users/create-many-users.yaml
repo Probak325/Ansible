@@ -1,0 +1,17 @@
+---
+# Create users using YAML file
+- name: "Creating users"
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: "Create users"
+      user:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - user1
+        - user2
+        - user3
+        - user4
+        - user5 

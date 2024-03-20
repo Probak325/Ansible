@@ -1,0 +1,19 @@
+---
+# =========================================================
+- name: "Ensure rsyslog Service is enabled"
+  ansible.builtin.systemd:
+    name: rsyslog
+    state: started
+    enabled: yes
+  tags: 
+    - rule_1
+
+- name: "Ensure journald is configure to send logs to rsyslog"
+  ansible.builtin.lineinfile:
+    dest: /etc/systemd/journald.conf
+    regexp: '^#?ForwardToSyslog='
+    line: 'ForwardToSyslog=yes'
+    create: true # Create file if doesn't exist
+  notify: systemd restart rsyslog
+  tags:
+    - rule_2
